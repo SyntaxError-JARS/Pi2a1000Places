@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/util/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/util/ConnectionFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
