@@ -1,5 +1,6 @@
 package com.revature.pi.models;
 
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Customer {
      {
 
@@ -13,13 +14,15 @@ public class Customer {
     //private String is_admin;
     //Record as a String, convert to a Boolean later? Parse it? Lookup when and why?
 
-    public Customer(String userName, String firstName, String lastName, String password, String balance) {
+ {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.balance = balance;
         //this.is_admin= false;
+    }
+    public Customer(String userName, String firstName, String lastName, String password, String balance) {
     }
     //Getters & setters used for fetching and updating variable value.
     public String getUserName() {
@@ -62,25 +65,27 @@ public class Customer {
         this.balance = balance;
         {
 
-        }
-//        public String toFileString () {
-//            StringBuilder stringBuilder = new StringBuilder()
-//                    .append(userName).append(",")
-//                    .append(firstName).append(",")
-//                    .append(lastName).append(",")
-//                    .append(password).append(",")
-//                    .append(balance).append(",");
-//
-//            return stringBuilder.toString();
-//        }
-//        public String () {
+//            @Override
+//            public String toString() {
 //            return "Customer{" +
-//                    ",email='" + userName + '\' +
-//            "firstName='" + firstName '\' +
-//            "lastName='" + lastName '\' +
-//            "password='" + password '\' +
-//            "balance='" + balance '\' +
-//            '}';
+//                    ",userName='" + userName + '\' +;
+//                    "firstName='" + firstName '\' +
+//                     "lastName='" + lastName '\' +
+//                    "password='" + password '\' +
+//                     "balance='" + balance '\' +
+//                    '}';
         }
+        }
+        public String toFileString () {
+            StringBuilder stringBuilder = new StringBuilder()
+                    .append(userName).append(",")
+                    .append(firstName).append(",")
+                    .append(lastName).append(",")
+                    .append(password).append(",")
+                    .append(balance).append(",");
+
+            return stringBuilder.toString();
+        }
+
 
     }
