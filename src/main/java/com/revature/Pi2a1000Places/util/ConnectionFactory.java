@@ -1,5 +1,6 @@
 package com.revature.Pi2a1000Places.util;
 
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -44,5 +45,8 @@ public class ConnectionFactory {
         }
         return conn;
     }
+
+
+public class ConnectionFactory {
 
 }
