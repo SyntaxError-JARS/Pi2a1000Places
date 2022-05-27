@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public interface Crudable<T> {
+//CRUD: Create, Read, Update, Delete
 
+    T create(T newObject) throws SQLException;
+//check exception thrown. Necessary?
 
-    T create(T newCustomer) throws SQLException;
 
     T[] findAll() throws IOException;
     T findById(String id);

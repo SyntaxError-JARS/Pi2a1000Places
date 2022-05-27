@@ -2,8 +2,8 @@ package com.revature.pi.models;
 
 public class CreditCard {
 
-    private String cardNumber;
-    private String cardName;
+    private String ccNumber;
+    private String ccName;
     private String cvv;
     private String expDate;
     private String zip;
@@ -11,8 +11,9 @@ public class CreditCard {
     private String userName;
 
 
-    public CreditCard(String cardName, String cvv, String expDate, String zip, String limit, String userName) {
-        this.cardName = cardName;
+    public CreditCard(String ccNumber, String ccName, String cvv, String expDate, String zip, String limit, String userName) {
+        this.ccNumber = ccNumber;
+        this.ccName = ccName;
         this.cvv = cvv;
         this.expDate = expDate;
         this.zip = zip;
@@ -21,8 +22,12 @@ public class CreditCard {
 
     }
 
+    public String getCardNumber() {
+        return ccNumber;
+    }
+
     public String getCardName() {
-        return cardName;
+        return ccName;
     }
 
     public String getCvv() {
@@ -45,8 +50,12 @@ public class CreditCard {
         return userName;
     }
 
-    public void setCardNumber(String cardName) {
-        this.cardName = cardName;
+    public void setCcNumber(String ccNumber) {
+        this.ccNumber = ccNumber;
+    }
+
+    public void setCcName(String ccName) {
+        this.ccName = ccName;
     }
 
     public void setCvv(String cvv) {
@@ -63,7 +72,21 @@ public class CreditCard {
 
     public void setLimit(String limit) {
         this.limit = limit;
+    }
+
+    public String setUserName(String userName) {
+        this.userName = userName;
         {
         }
+        StringBuilder mutableString = new StringBuilder();
+        mutableString
+                .append(ccNumber).append(",")
+                .append(ccName).append(",")
+                .append(cvv).append(",")
+                .append(expDate).append(",")
+                .append(zip).append(",")
+                .append(limit).append(",")
+                .append(userName);
+        return mutableString.toString();
     }
 }
