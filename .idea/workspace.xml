@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DraftingP1Code.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Syntaxoftables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="Saturday drafting of code to review and adapt and apply" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +38,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "/home/vow/Desktop/revature-parent/Pi2a1000Places_API_TM_RD-main"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
+    ]
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -54,6 +54,14 @@
       <option name="presentableId" value="Default" />
       <updated>1653433046840</updated>
     </task>
+    <task id="LOCAL-00001" summary="Saturday drafting of code to review and adapt and apply">
+      <created>1653783745819</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653783745819</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -69,5 +77,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Saturday drafting of code to review and adapt and apply" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saturday drafting of code to review and adapt and apply" />
   </component>
 </project>
