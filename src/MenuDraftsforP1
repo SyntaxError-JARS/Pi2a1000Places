@@ -1,22 +1,16 @@
 /*
-
 class Scratch {
     public static void main(String[] args) {
-
     }
 }
 */
-
 package com.revature.Pi2a1000Places.menu;
-
 /*
-public class Menu {
-
+public class Menu {                             //   Example  Default class not used for now.
     public class TestApplication {
         static final String DB_URL = "jdbc:mysql://localhost/TUTORIALSPOINT";
         static final String USER = "guest";
         static final String PASS = "guest123";
-
         public static void main(String[] args) {
             // Open a connection
             try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -28,7 +22,6 @@ public class Menu {
                         " last VARCHAR(255), " +
                         " age INTEGER, " +
                         " PRIMARY KEY ( id ))";
-
                 stmt.executeUpdate(sql);
                 System.out.println("Created table in given database...");
             } catch (SQLException e) {
@@ -61,19 +54,13 @@ public static void printCurrency(double currencyAmount, String outputCurrency) {
     Locale locale;
         locale = new Locale("en", "US");
     }
-
 	Currency currency = Currency.getInstance(locale);
-
 	NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-
 	System.out.println(currency.getDisplayName() + ": " + numberFormat.format(currencyAmount));
-
 	}
-}
+}         */
 
- */
-
-public class Menu {
+public class Menu {             //      Example  Default class used
 
     private String item_name;
     private double cost;

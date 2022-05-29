@@ -5,7 +5,6 @@ import java.sql.Connection;		//  A unique session to SQL Server data source
 import java.sql.DriverManager;	//  Interface between users and drivers
 import java.sql.SQLException;	//	To catch SQL method handle of Exception
 
-
 public class Restaurant1 {			// Start of class code
 	
     private static final Restaurant1 connectionFactory = new Restaurant1();

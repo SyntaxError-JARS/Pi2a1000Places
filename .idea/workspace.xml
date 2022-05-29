@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="Saturday drafting of code to review and adapt and apply" />
+    <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="Saturday drafting of code to review and adapt and apply">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DraftingP1Code.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DraftingP1Code.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuDraftsforP1" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuDraftsforP1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/DraftMenuDom" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/DraftMenuDom" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,10 +46,16 @@
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JavaScript",
       "JAVA"
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -61,7 +72,28 @@
       <option name="project" value="LOCAL" />
       <updated>1653783745819</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Saturday drafting of code to review and adapt and apply">
+      <created>1653784288334</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653784288334</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Saturday drafting of code to review and adapt and apply">
+      <created>1653788516545</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653788516545</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Saturday drafting of code to review and adapt and apply">
+      <created>1653790126436</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653790126436</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -5,11 +5,9 @@
  * 
  */
 
-/*
+/*                                               Example  Default class not used for now.
 public class untitled {
-	
 	public static void main (String[] args) {
-		
 	}
 }
 */
@@ -18,30 +16,28 @@ package com.revature.Pi2a1000Places.customer;
 
 import com.revature.Pi2a1000Places.util.ConnectionFactory;
 
-import java.sql.Connection;
+import java.sql.Connection;               // These 4 are the require libraries need to perform features inside them.
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MenuDao {
+public class MenuDao {                  // The default required class for code to work.
 
-    public static Menu create(Menu newItem) {
+    public static Menu create(Menu newItem) {           // The typical primary method of the Java code.
 
-        System.out.println("Here is the newItem as it enters our DAO layer: " + newItem); // What happens here? Java knows to invoke the toString() method when printing the object to the terminal
+        System.out.println("Here is the newItem as it enters our DAO layer: " + newItem);
+        // The above, Java knows to invoke the toString() method when printing the object to the terminal
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
-
-            String sql = "add addtional selction to the menu (item_name, cost, protien, is_substitutable) values (?, ?, ?, ?)";
+            String sql = "add additional selection to the menu (item_name, cost, protein, is_substitutable) values (?, ?, ?, ?)";
 
             PreparedStatement psmenu = conn.prepareStatement(sql);
+            psmenu.setString(1, newItem.getItem_name());
+            psmenu.setString(2, newItem.getCost());
+            psmenu.setString(3, newItem.getProtein());
+            psmenu.setString(4, newItem.getIs_substitutable());
+
 /* the rest of lables must be changed to process the menu table values*/
-
-
-
-            psmenu.setString(1, newUser.getUsername());
-            psmenu.setString(2, newUser.getFname());
-            psmenu.setString(3, newUser.getLname());
-            psmenu.setString(4, newUser.getPassword());
 
             int checkInsert = ps.executeUpdate();
 
