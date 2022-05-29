@@ -1,8 +1,8 @@
 package com.revature.Pi2a1000Places.creditcard;
-import com.revature.Pi2a1000Places.creditcard.CreditCardDao;
+import com.revature.Pi2a1000Places.util.exceptions.ResourcePersistenceException;
 
 import java.io.IOException;
-public class CreditCardServices {
+public class CreditCardServices extends CreditCardDao {
 
 
     private CreditCard cc = new CreditCard();
@@ -10,32 +10,31 @@ public class CreditCardServices {
     //CreditCard Class is now = cc. CreditCardDao Class is now = ccDao.
 
 
-    public boolean create(CreditCard newCreditCard){
-        System.out.println("CreditCard trying to be registered: " + newCreditCard);
-        if(validateCreditCardInput(new CreditCard())){
-            System.out.println("User was not validated");
+    public CreditCard create(CreditCard newCreditCard){
+        System.out.println("Adding Credit Card...: " + newCreditCard);
+        if(validateCreditCardInput(new CreditCard())) {
+            System.out.println("Credit Card Was Not Validated");
             throw new RuntimeException();
         }
-
-//            public void CreditCard;{
-//                System.out.println("Begin reading CreditCards in our file database.");
-//                CreditCard[] CreditCards = new CreditCard[0];
-//                try {
-//                    CreditCards = creditCardDao.findAll();
-//                    System.out.println("All CreditCards have been found here are the results: \n");
-//
-//                } catch (IOException | NullPointerException e) {
-//                    // e.printStackTrace();
 
         CreditCard persistedCreditCard = ccDao.create(new CreditCard());
 
         if(persistedCreditCard == null){
-            throw new RuntimeException();
+            throw new ResourcePersistenceException();
         }
-        System.out.println("CreditCard has been persisted: " + new CreditCard());
+        System.out.println("CreditCard Persisted: " + new CreditCard());
         return true;
     }
 
+        public CreditCard[] findAll() throws IOException {
+        return null;
+        }
+        public Object findById(String username) {
+        return null;
+        }
+        boolean delete(String username) {
+            return delete(String username);
+        }
     private boolean validateCreditCardInput(CreditCard cc) {
         System.out.println("Validating CreditCard: " + cc);
         if(cc == null) return false;
