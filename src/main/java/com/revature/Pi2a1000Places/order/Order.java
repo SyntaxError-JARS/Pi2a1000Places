@@ -46,6 +46,10 @@ public class Order {
 
         public void setOrderDate(String orderDate){this.orderDate = orderDate;}
 
+        public String getCustomerUsername(){return customerUsername;}
+
+        public void setCustomerUsername(String customerUsername){this.customerUsername = customerUsername;}
+
 
 
 
