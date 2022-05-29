@@ -1,0 +1,107 @@
+/*
+ * MenuDom Draft.
+ * 
+ * Copyright 2022 Rodney <>
+ * 
+ */
+
+/*
+public class untitled {
+	
+	public static void main (String[] args) {
+		
+	}
+}
+*/
+
+package com.revature.Pi2a1000Places.customer;
+
+import com.revature.Pi2a1000Places.util.ConnectionFactory;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class MenuDao {
+
+    public static Menu create(Menu newItem) {
+
+        System.out.println("Here is the newItem as it enters our DAO layer: " + newItem); // What happens here? Java knows to invoke the toString() method when printing the object to the terminal
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
+
+            String sql = "add addtional selction to the menu (item_name, cost, protien, is_substitutable) values (?, ?, ?, ?)";
+
+            PreparedStatement psmenu = conn.prepareStatement(sql);
+/* the rest of lables must be changed to process the menu table values*/
+
+
+
+            psmenu.setString(1, newUser.getUsername());
+            psmenu.setString(2, newUser.getFname());
+            psmenu.setString(3, newUser.getLname());
+            psmenu.setString(4, newUser.getPassword());
+
+            int checkInsert = ps.executeUpdate();
+
+            if (checkInsert == 0) {
+                throw new RuntimeException();
+            }
+
+        } catch (SQLException | RuntimeException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return newUser;
+    }
+
+
+    public Boolean pullUsernames(String username) {
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+            String sql = "select username from customer where username = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (!rs.isBeforeFirst()) {
+                return false;
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    public Customer authenticateCustomer(String username, String password) {
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+            String sql = "select * from customer where username = ? and password = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                return null;
+            }
+
+            Customer customer = new Customer();
+
+            customer.setUsername(rs.getString("username"));
+            customer.setFname(rs.getString("fname"));
+            customer.setLname(rs.getString("lname"));
+            customer.setPassword(rs.getString("password"));
+
+            return customer;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
