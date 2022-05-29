@@ -40,37 +40,30 @@ public class Menu {
 }
 */
 
-/*
-double currencyAmount = 1500.00;
+double costamount = 1500.00;   /*   keep the amount but switch currency format to display output    */
+/*    assign costamout to equal variable cost     */
+
 // Create a new Locale
 Locale usa = new Locale("en", "US");
+
 // Create a Currency instance for the Locale
 Currency dollars = Currency.getInstance(usa);
+
 // Create a formatter given the Locale
 NumberFormat dollarFormat = NumberFormat.getCurrencyInstance(usa);
 
 // Format the Number into a Currency String
 System.out.println(dollars.getDisplayName() + ": " + dollarFormat.format(currencyAmount));
 
- */
-
-
 /*
 
 public static void printCurrency(double currencyAmount, String outputCurrency) {
     Locale locale;
-
-    if (outputCurrency.equals("Yen")) {
-	    locale = new Locale("jp", "JP");
-	} else if(outputCurrency.equals("Euros")) {
-        locale = new Locale("de", "DE");
-	} else if (outputCurrency.equals("Dollars")) {
-        locale = new Locale("en", "US");
-    } else {
         locale = new Locale("en", "US");
     }
 
 	Currency currency = Currency.getInstance(locale);
+
 	NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 
 	System.out.println(currency.getDisplayName() + ": " + numberFormat.format(currencyAmount));
@@ -87,46 +80,40 @@ public class Menu {
     private String protein;
     private boolean is_substitutable;
 
-    public Menu( String item_name, String password, String fname,String lname, String balance){
+    public Menu( String item_name, double cost, String protein,Boolean is_substitutable){
         super();
-        this.fname = fname;
-        this.lname = lname;
-        this.balance = balance;
-        this.username = username;
-        this.password = password;
+        this.item_name = item_name;                     //  Assign the variable to the
+        this.cost = cost;                               //
+        this.protein = protein;                         //
+        this.is_substitutable = is_substitutable;       //
     }
 
-    public Customer(){
+    public Menu(){
 
     }
 
-    //Getters And Setters
-    public String getFname(){return fname;}
+    //Getters And Setters               /*  These commands are to make the data more secure and protect it. */
+    public String geItem_name(){return item_name;}
 
-    public void setFname(String fname){this.fname = fname;}
+    public void setItem_name(String item_name){this.item_name = item_name;}
 
-    public String getLname(){return lname;}
+    public String getCost(){return cost;}
 
-    public void setLname(String lname){this.lname = lname;}
+    public void setCost(String cost){this.cost = cost;}
 
-    public String getBalance(){return balance;}
+    public String getProtein(){return protein;}
 
-    public void setBalance(String balance){this.balance = balance;}
+    public void setProtein(String protein){this.protein = protein;}
 
-    public String getUsername(){return username;}
+    public String getIs_substitutable(){return is_substitutable;}
 
-    public void setUsername(String username){this.username = username;}
-
-    public String getPassword(){return password;}
-
-    public void setPassword(String password){this.password = password;}
+    public void setIs_substitutable(String is_substitutable){this.is_substitutable = is_substitutable;}
 
     @Override
-    public String toString() {
-        return "User Info{" +
-                "First Name ='" + fname + '\'' +
-                ", Last Name ='" + lname + '\'' +
-                '}';
+    public String toString() {    /*  To output the consolidated line of a menu  */
+        return "Item {" +
+                 + item_name +   "   Price   " + cost + " protein    " +
+                 protein + "Substitutable     " +  is_substitutable  '}';
     }
 
 }
