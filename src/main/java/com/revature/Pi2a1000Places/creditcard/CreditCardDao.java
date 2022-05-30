@@ -1,15 +1,14 @@
 package com.revature.Pi2a1000Places.creditcard;
-import com.revature.Pi2a1000Places.util.Crudable;
-import com.revature.Pi2a1000Places.util.exceptions.ResourcePersistenceException;
+
 import com.revature.Pi2a1000Places.util.ConnectionFactory;
+import com.revature.Pi2a1000Places.util.exceptions.ResourcePersistenceException;
 import com.revature.Pi2a1000Places.util.logging.Logger;
-import java.io.IOException;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-import java.io.*;
-import java.sql.*;
-
-    public class CreditCardDao implements Crudable {
+    public class CreditCardDao {
 
         private Logger logger = Logger.getLogger();
 
@@ -47,78 +46,89 @@ import java.sql.*;
             return newCreditCard;
         }
 
-        @Override
-        public Object create(Object newObject) throws SQLException {
+        //Read- NOT MVP!!!!
+
+//        public CreditCard[] findAll() throws IOException {
+//            try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
+//
+//                String sql = "select * from CreditCard";
+//                Statement s = conn.createStatement();
+//                ResultSet rs = s.executeQuery(sql);
+//
+//                while (rs.next()) {
+//                    CreditCard newCC = new CreditCard();
+//
+//                    newCC.setCcNumber(rs.getString("ccNumber")); // this column label MUST MATCH THE DB
+//                    newCC.setCcName(rs.getString("ccName"));
+//                    newCC.setCvv(rs.getString("cvv"));
+//                    newCC.setExpDate(rs.getString("expDate"));
+//                    newCC.setZip(rs.getString("zip"));
+//                    newCC.setLimit(rs.getString("limit"));
+//                    newCC.setUserName(rs.getString("userName"));
+//
+//                    System.out.println("Going to the next line for our following index.");
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                return null;
+ //           }
+
+//            // NOT MVP!!!!!!
+//            public Object findById(String username) {
+//
+//            try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
+//
+//                String sql = "select * from creditCard where userName = ?";
+//
+//                PreparedStatement ps = conn.prepareStatement(sql);
+//                ResultSet rs = ps.executeQuery();
+//
+//                if (!rs.next()) {
+//                    throw new ResourcePersistenceException("Credit Card Not Found");
+//                }
+//
+//                CreditCard CreditCard = new CreditCard();
+//
+//                CreditCard.setCcNumber(rs.getString("ccNumber")); // this column label MUST MATCH THE DB
+//                CreditCard.setCcName(rs.getString("ccName"));
+//                CreditCard.setCvv(rs.getString("cvv"));
+//                CreditCard.setExpDate(rs.getString("expDate"));
+//                CreditCard.setZip(rs.getString("zip"));
+//                CreditCard.setLimit(rs.getString("limit"));
+//                CreditCard.setUserName(rs.getString("userName"));
+//
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                return null;
+//            } } }
+
+        // MVP b. Update - UPDATE Card
+        public CreditCard update(Object updatedObject) {
             return null;
         }
-        // MVP b. Update Card
-        @Override
-        public CreditCard[] findAll() throws IOException {
-            try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-                String sql = "select * from CreditCard";
-                Statement s = conn.createStatement();
-                ResultSet rs = s.executeQuery(sql);
+        //// MVP c. Delete - DELETE Card
+        public boolean deleteByCCNumber(String ccNumber) {
+            Connection conn = ConnectionFactory.getInstance().getConnection();
+            {
+                String sql = "delete from credit_card where cc_number = ?";
 
-                while (rs.next()) {
-                    CreditCard newCC = new CreditCard();
+                try {
+                    PreparedStatement ps = conn.prepareStatement(sql);
+                    ps.setString(1, ccNumber);
 
-                    newCC.setCcNumber(rs.getString("ccNumber")); // this column label MUST MATCH THE DB
-                    newCC.setCcName(rs.getString("ccName"));
-                    newCC.setCvv(rs.getString("cvv"));
-                    newCC.setExpDate(rs.getString("expDate"));
-                    newCC.setZip(rs.getString("zip"));
-                    newCC.setLimit(rs.getString("limit"));
-                    newCC.setUserName(rs.getString("userName"));
+                    int checkInsert = ps.executeUpdate();
 
-                    System.out.println("Going to the next line for our following index.");
+                    if (checkInsert == 0) {
+                        throw new RuntimeException();
+                    }
+
+                    return true;
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return null;
+
             }
-
-            //@Override
-            public Object findById(String username) {
-
-            try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
-
-                String sql = "select * from creditCard where userName = ?";
-
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery();
-
-                if (!rs.next()) {
-                    throw new ResourcePersistenceException("Credit Card Not Found");
-                }
-
-                CreditCard CreditCard = new CreditCard();
-
-                CreditCard.setCcNumber(rs.getString("ccNumber")); // this column label MUST MATCH THE DB
-                CreditCard.setCcName(rs.getString("ccName"));
-                CreditCard.setCvv(rs.getString("cvv"));
-                CreditCard.setExpDate(rs.getString("expDate"));
-                CreditCard.setZip(rs.getString("zip"));
-                CreditCard.setLimit(rs.getString("limit"));
-                CreditCard.setUserName(rs.getString("userName"));
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return null;
-            } } }
-
-        @Override
-        public Object findById(String username) {
-            return null;
-        }
-
-        @Override
-        public boolean update(Object updatedObject) {
-            return false;
-        }
-
-        @Override
-        public boolean delete(String username) {
             return false;
         }
     }

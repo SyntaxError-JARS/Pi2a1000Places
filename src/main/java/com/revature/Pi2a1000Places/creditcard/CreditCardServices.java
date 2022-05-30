@@ -20,10 +20,10 @@ public class CreditCardServices extends CreditCardDao {
         CreditCard persistedCreditCard = ccDao.create(new CreditCard());
 
         if(persistedCreditCard == null){
-            throw new ResourcePersistenceException();
+            throw new ResourcePersistenceException("Persisted");
         }
         System.out.println("CreditCard Persisted: " + new CreditCard());
-        return true;
+        return new CreditCard();
     }
 
         public CreditCard[] findAll() throws IOException {
@@ -32,9 +32,9 @@ public class CreditCardServices extends CreditCardDao {
         public Object findById(String username) {
         return null;
         }
-        boolean delete(String username) {
-            return delete(String username);
-        }
+//        boolean delete(String username) {
+//            return delete(String username);
+//        }
     private boolean validateCreditCardInput(CreditCard cc) {
         System.out.println("Validating CreditCard: " + cc);
         if(cc == null) return false;

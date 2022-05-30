@@ -1,7 +1,7 @@
 package com.revature.Pi2a1000Places.creditcard;
 
 public class CreditCard {
-
+    //CC value setup - initializing
     private String ccNumber;
     private String ccName;
     private String cvv;
@@ -9,6 +9,8 @@ public class CreditCard {
     private String zip;
     private String limit;
     private String userName;
+
+//Creating Constructors for the CC Class
 
 
     public CreditCard(String ccNumber, String ccName, String cvv, String expDate, String zip, String limit, String userName) {
@@ -19,13 +21,13 @@ public class CreditCard {
         this.zip = zip;
         this.limit = limit;
         this.userName = userName;
-
     }
 
     public CreditCard() {
 
     }
 
+    //Generate Getters/Setters
     public String getCcNumber() {
         return ccNumber;
     }

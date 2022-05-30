@@ -1,7 +1,5 @@
 package com.revature.Pi2a1000Places.util;
 
-import com.sun.org.apache.xerces.internal.impl.dv.ValidatedInfo;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
