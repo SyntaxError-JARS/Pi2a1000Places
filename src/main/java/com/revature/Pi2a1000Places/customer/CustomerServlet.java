@@ -2,7 +2,6 @@ package com.revature.Pi2a1000Places.customer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.Pi2a1000Places.util.exceptions.InvalidRequestException;
-import com.revature.Pi2a1000Places.util.interfaces.Authable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CustomerServlet extends HttpServlet implements Authable {
+public class CustomerServlet extends HttpServlet {
 
     private final CustomerServices customerServices;
     private final ObjectMapper mapper;
