@@ -1,7 +1,12 @@
 package com.revature.Pi2a1000Places.customer;
 
 import com.revature.Pi2a1000Places.util.ConnectionFactory;
+import com.revature.Pi2a1000Places.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,20 +45,25 @@ public class CustomerDao {
 
 
     public Boolean pullUsernames(String username) {
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
-            String sql = "select username from customer where username = ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, username);
+        try {
+            System.out.println("Before Hibernate");
+            Session session = HibernateUtil.getSession();
+            System.out.println("After Get Session");
+            Transaction transaction = session.beginTransaction();
+            System.out.println("After Transaction");
+            Customer customer = session.get(Customer.class, username);
+            System.out.println("After Session.get");
+            transaction.commit();
+            System.out.println("After Transaction Commit");
+            if(customer !=null){
+                return true;
+            }else return false;
 
-            ResultSet rs = ps.executeQuery();
-
-            if (!rs.isBeforeFirst()) {
-                return false;
-            }
-            return true;
-        } catch (SQLException e) {
+        } catch (HibernateException | IOException e) {
             e.printStackTrace();
-            return false;
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
         }
 
     }

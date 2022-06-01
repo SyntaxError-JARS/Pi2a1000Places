@@ -6,8 +6,10 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class Customer {
 
-    @Id
+    @Id @GeneratedValue
+    @Column(name = "username")
     private String username;
+
     private String fname;
     private String lname;
     private String password;
