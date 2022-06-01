@@ -33,6 +33,8 @@ public class AuthServlet extends HttpServlet {
 
             Customer authCustomer = customerServices.authenticateCustomer(loginCreds.getUsername(), loginCreds.getPassword());
 
+
+
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("authCustomer", authCustomer);
 

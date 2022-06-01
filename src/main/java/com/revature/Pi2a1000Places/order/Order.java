@@ -1,8 +1,14 @@
 package com.revature.Pi2a1000Places.order;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "order")
 public class Order {
 
-
+        @Id
         private String id;
         private String menuItem;
         private String comment;

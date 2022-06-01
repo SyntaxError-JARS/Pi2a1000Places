@@ -61,7 +61,7 @@ public class CustomerServices {
             throw new AuthenticationException("Unauthenticated user, information provided was not consistent with our database.");
         }
 
-        return customer;
+        return authenticatedCustomer;
     }
 
 }
