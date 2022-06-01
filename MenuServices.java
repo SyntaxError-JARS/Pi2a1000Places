@@ -24,50 +24,43 @@ public class CustomerServices {
     }
 
 
-    //TODO:Exceptions to yell at the imenu
+    //TODO:Exceptions to yell at the iname
     public boolean validateMenuInput(Menu newMenu) throws InvalidRequestException {
         System.out.println("Validating Menu Item: " + newiname);
         if(newIname == null) return false;
        
-       
-        if(newMenu.getIname() == null || newMenu.getIname().trim().equals("")){
-			
-			
-            throw new InvalidRequestException("First Name cannot be blank");}
+  
+        if(newMenu.getIname() == null){
+            throw new InvalidRequestException("Item Name cannot be blank");}
             
-        if(newUser.getLname() == null || newUser.getLname().trim().equals("")){
-			
-			
-            throw new InvalidRequestException("Last Name cannot be blank");}
             
-        if(newIname.getUsername() == null || newUser.getUsername().trim().equals("")){
-			
-			
-            throw new InvalidRequestException("Username cannot be blank");}
+        if(newMenu.getProtien() == null){			
+            throw new InvalidRequestException("Protien cannot be blank");}
             
-        if(newUser.getPassword() == null || newUser.getPassword().trim().equals("")){
-			
-			
-            throw new InvalidRequestException("Password cannot be blank");}
+        if(newMenu.getCost() == null){		
+            throw new InvalidRequestException("Cost cannot be blank");}
             
-        System.out.println("The User Has been Validated");
-        if (verifyNewUsername(newUser.getUsername()) == true) {
+        if(newUser.getPassword() == null){
+            throw new InvalidRequestException("Substitute cannot be blank");}
+            
+        System.out.println("The Menu has been validated");
+        if (verifyNewMenu(newMenu.getMenu()) == true) {
 			
 			
-            throw new InvalidRequestException("That username has already been taken");
+            throw new InvalidRequestException("That menu item has already been used");
         }else{
-            createNewUser(newUser);
+            createNewMenu(newMenu);
             return true;
         }
     }
-
-    public boolean verifyNewUsername(String username){
-        return customerDao.pullUsernames(username);
+/*
+    public boolean verifyNewMenu(String username){
+        return customerDao.pullMenu(username);
     }
+*/
 
-
-    public Customer createNewUser(Customer newUser){
-        System.out.println("New user being created " + newUser);
+    public Menu createNewMenu(Customer newMenu){
+        System.out.println("New menu item being created " + newMenu);
 
         return CustomerDao.create(newUser);
     }
