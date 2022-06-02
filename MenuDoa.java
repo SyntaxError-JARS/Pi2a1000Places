@@ -48,7 +48,6 @@ public class MenuDao {                  // The default required class for code t
     }
 /* the rest of labels must be changed to process the menu table values*/
 
-
     public Boolean pullmenuitem(String iname) {
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
             String sql = "select menu item to substitute =  with?";

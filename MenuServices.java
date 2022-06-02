@@ -8,7 +8,6 @@ package com.revature.Pi2a1000Places.customer;
 import com.revature.Pi2a1000Places.util.exceptions.AuthenticationException;
 import com.revature.Pi2a1000Places.util.exceptions.InvalidRequestException;
 
-
 public class CustomerServices {
 
     private MenuDao MenuDao = new MenuDao();
