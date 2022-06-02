@@ -31,7 +31,6 @@ public Menu(){
     public void setIname(String lname){this.iname = iname;}
     
 // Done
-
     public String getCost(){return cost;}
 
     public void setCost(int cost){this.cost = cost;}

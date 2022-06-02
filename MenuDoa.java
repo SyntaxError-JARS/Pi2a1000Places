@@ -46,7 +46,6 @@ public class MenuDao {                  // The default required class for code t
         }
         return newUser;
     }
-
 /* the rest of labels must be changed to process the menu table values*/
 
     public Boolean pullmenuitem(String iname) {

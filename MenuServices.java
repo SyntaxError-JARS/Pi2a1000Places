@@ -19,7 +19,6 @@ public class CustomerServices {
 
     }
 
-
     //TODO:Exceptions to yell at the iname
     public boolean validateMenuInput(Menu newMenu) throws InvalidRequestException {
         System.out.println("Validating Menu Item: " + newiname);
