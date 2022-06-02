@@ -1,8 +1,12 @@
 package com.revature.Pi2a1000Places.customer;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customer")
 public class Customer {
 
-
+    @Id
     private String username;
     private String fname;
     private String lname;
