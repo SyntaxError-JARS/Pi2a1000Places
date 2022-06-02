@@ -24,6 +24,7 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
             Properties props = new Properties();
 
+        
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             props.load(loader.getResourceAsStream("hibernate.properties"));
 
@@ -36,7 +37,6 @@ public class HibernateUtil {
             //configuration.addAnnotatedClass(Menu.class);
             //configuration.addAnnotatedClass(Order.class);
 
-            
 
             // ServiceRegistry
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -69,4 +69,4 @@ public class HibernateUtil {
 //        hibernate.connection.password=
 //        hibernate.show_sql=true
 //        #Create once and update thereafter
-//        hibernate.hbm2ddl.auto=update
+
