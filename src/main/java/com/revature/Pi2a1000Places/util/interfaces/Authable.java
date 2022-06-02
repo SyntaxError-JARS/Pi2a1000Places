@@ -1,5 +1,6 @@
 package com.revature.Pi2a1000Places.util.interfaces;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,4 +17,8 @@ public interface Authable {
         }
         return true;
     }
+
+    void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+
+    void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 }

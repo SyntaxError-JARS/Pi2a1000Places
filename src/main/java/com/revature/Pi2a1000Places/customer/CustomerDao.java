@@ -103,4 +103,38 @@ public class CustomerDao {
 
     }
 
+    public String deleteCustomer(String username) {
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
+            String sql = "delete from \"order\" where customer_username = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+
+
+            int rs = ps.executeUpdate();
+            System.out.println(rs);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
+            String sql = "delete from customer where username = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+
+
+            int rs = ps.executeUpdate();
+            System.out.println(rs);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        String deletedAccount;
+        return deletedAccount = ("Account of " + username + " has been deleted \n");
+    }
+
+
 }
