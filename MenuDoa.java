@@ -11,11 +11,9 @@ public class untitled {
 	}
 }
 */
-
 package com.revature.Pi2a1000Places.customer;
 
 import com.revature.Pi2a1000Places.util.ConnectionFactory;
-
 import java.sql.Connection;               // These 4 are the require libraries need to perform features inside them.
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,9 +35,7 @@ public class MenuDao {                  // The default required class for code t
             psmenu.setString(3, newItem.getProtein());
             psmenu.setString(4, newItem.getIs_substitutable());
 
-
             int checkInsert = psmenu.executeUpdate();
-
             if (checkInsert == 0) {
                 throw new RuntimeException();
             }
