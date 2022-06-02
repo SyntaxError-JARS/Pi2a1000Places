@@ -73,27 +73,6 @@ public class MenuDao {                  // The default required class for code t
 /*          For menu transactions this code is not needed yet. Depends on method coded to give menu changing privileges.
                 If used in the project, change variables name to correct names and modify method to pass parameters
                     the parameters will handle variables or methods assigned to variables, for menu to be change or substituted.
-
-    public Customer authenticateCustomer(String username, String password) {
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
-            String sql = "select * from customer where username = ? and password = ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, username);
-            ps.setString(2, password);
-            ResultSet rs = ps.executeQuery();
-            if (!rs.next()) {
-                return null; }
-            Customer customer = new Customer();
-            customer.setUsername(rs.getString("username"));
-            customer.setFname(rs.getString("fname"));
-            customer.setLname(rs.getString("lname"));
-            customer.setPassword(rs.getString("password"));
-            return customer;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
   */          //  End of code block authenticate values in parameters passed.
-
 }       // End of primary block of code the main.

@@ -2,11 +2,7 @@
  * MenuServices.java
  * 
  * Copyright 2022 Rodney
- * 
- * 
  */
-
-
 package com.revature.Pi2a1000Places.customer;
 
 import com.revature.Pi2a1000Places.util.exceptions.AuthenticationException;
