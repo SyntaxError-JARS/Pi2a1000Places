@@ -41,6 +41,7 @@ public Menu(){
     public void setProtien(String protien){this.protien = protien;}
 // Done  
 
+
     public String getSubstitue(){return substitue;}
 
     public void setSubstitue(boolean substitue){this.substitue = substitue;}
