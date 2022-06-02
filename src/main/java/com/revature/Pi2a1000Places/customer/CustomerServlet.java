@@ -47,7 +47,10 @@ public class CustomerServlet extends HttpServlet implements Authable {
             resp.getWriter().write(e.getMessage());
         }
         } else if (Authable.checkAuth(req, resp)) {
-            resp.getWriter().write("This works");
+            if (newUser.getUsername().equals(LoginCreds.getUsername()) && newUser.getPassword().equals(LoginCreds.getPassword())) {
+                resp.getWriter().write( customerServices.updateCustomer(newUser));
+            }else{throw new AuthenticationException("The username and password of the current user does not match the one to be deleted");
+            }
         }
     }
 
