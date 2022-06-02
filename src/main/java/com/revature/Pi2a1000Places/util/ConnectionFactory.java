@@ -1,18 +1,18 @@
 package com.revature.Pi2a1000Places.util;
 
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-
 public class ConnectionFactory {
 
     private static final ConnectionFactory connectionFactory = new ConnectionFactory();
     private Properties prop = new Properties();
 
-    private ConnectionFactory() {
+    private ConnectionFactory(){
         try {
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             prop.load(loader.getResourceAsStream("db.properties"));
@@ -30,7 +30,7 @@ public class ConnectionFactory {
         }
     }
 
-    public static ConnectionFactory getInstance() {
+    public static ConnectionFactory getInstance(){
         return connectionFactory;
     }
 
@@ -44,6 +44,9 @@ public class ConnectionFactory {
             throw new RuntimeException(e);
         }
         return conn;
-
     }
+
+
+public class ConnectionFactory {
+
 }
