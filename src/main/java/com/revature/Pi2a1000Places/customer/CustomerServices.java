@@ -64,4 +64,15 @@ public class CustomerServices {
         return authenticatedCustomer;
     }
 
+    public String deleteCustomer(Customer customerToDelete){
+        String fname = customerToDelete.getFname();
+        String lname = customerToDelete.getLname();
+        String username = customerToDelete.getUsername();
+        String password = customerToDelete.getPassword();
+        String deleteStatement = customerDao.deleteCustomer(username);
+
+
+        return deleteStatement ;
+    }
+
 }

@@ -1,8 +1,10 @@
 package com.revature.Pi2a1000Places.order;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.Pi2a1000Places.customer.Customer;
 import com.revature.Pi2a1000Places.order.*;
 import com.revature.Pi2a1000Places.auth.LoginCreds;
+import com.revature.Pi2a1000Places.util.exceptions.AuthenticationException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,21 +41,23 @@ public class OrderServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-       // if (checkAuth(req, resp)) {
+       if (checkAuth(req, resp)) {
         System.out.println("Creating Order");
             Order orderToCreate = mapper.readValue(req.getInputStream(), Order.class);
             Order order = new Order();
         System.out.println(LoginCreds.getUsername());
-            //if (orderToCreate.getCustomerUsername().equals(LoginCreds.getUsername())) {
+            if (orderToCreate.getCustomerUsername().equals(LoginCreds.getUsername())) {
                 //creating
                 order = orderServices.createOrder(orderToCreate);
                 String payload = mapper.writeValueAsString(order);
                 resp.getWriter().write(payload);
-            //}
+            }
 
 
-       // }
+        }
     }
+
+
 
 
 }
