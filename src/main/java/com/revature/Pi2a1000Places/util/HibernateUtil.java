@@ -6,8 +6,6 @@ import com.revature.Pi2a1000Places.menu.Menu;
 import com.revature.Pi2a1000Places.order.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -34,20 +32,14 @@ public class HibernateUtil {
 
             //configuration.addAnnotatedClass(CreditCard.class);
             //configuration.addAnnotatedClass(Menu.class);
-            configuration.addAnnotatedClass(Order.class);
+            //configuration.addAnnotatedClass(Order.class);
 
             // ServiceRegistry
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
 
-            try {
-                sessionFactory = new MetadataSources( serviceRegistry ).buildMetadata().buildSessionFactory();
-            }
-            catch (Exception e) {
-                // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
-                // so destroy it manually.
-                StandardServiceRegistryBuilder.destroy( serviceRegistry );
-            }
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
 
 
         }
@@ -65,3 +57,12 @@ public class HibernateUtil {
 
     }
 }
+
+//        hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+//        hibernate.connection.driver_class=org.postgresql.Driver
+//        hibernate.connection.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=restaurant
+//        hibernate.connection.username=postgres
+//        hibernate.connection.password=
+//        hibernate.show_sql=true
+//        #Create once and update thereafter
+//        hibernate.hbm2ddl.auto=update

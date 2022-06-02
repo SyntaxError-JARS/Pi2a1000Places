@@ -9,10 +9,13 @@ public class Customer {
     @Id @GeneratedValue
     @Column(name = "username")
     private String username;
-
+    @Column(name = "fname")
     private String fname;
+    @Column(name = "lname")
     private String lname;
+    @Column(name = "password")
     private String password;
+    @Column(name = "balance")
     private String balance;
 
     public Customer( String username, String password, String fname,String lname, String balance){

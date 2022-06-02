@@ -46,15 +46,15 @@ public class CustomerDao {
 
     public Boolean pullUsernames(String username) {
         try {
-            System.out.println("Before Hibernate");
+            //System.out.println("Before Hibernate");
             Session session = HibernateUtil.getSession();
-            System.out.println("After Get Session");
+            //System.out.println("After Get Session");
             Transaction transaction = session.beginTransaction();
-            System.out.println("After Transaction");
-            Customer customer = session.get(Customer.class, username);
-            System.out.println("After Session.get");
+           // System.out.println("After Transaction");
+            Customer customer = session.get(Customer.class,username);
+            //System.out.println("After Session.get");
             transaction.commit();
-            System.out.println("After Transaction Commit");
+           // System.out.println("After Transaction Commit");
             if(customer !=null){
                 return true;
             }else return false;
