@@ -8,12 +8,35 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 public class CreditCardServices {
-
+    private final CreditCardDao creditCardDao;
 
     @Id
     @Column(name="CCNUMBER")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int ccNumber;
+
+    //@Override
+    public CreditCard create(CreditCard newCreditCard){
+        return creditCardDao.create(new CreditCard());
+    }
+    //@Override
+    public CreditCard update(CreditCard updatedCreditCard) {
+        if (creditCardDao.update(updatedCreditCard)) return null;
+
+        return updatedCreditCard;
+    }
+
+    //Override
+    public boolean delete() {
+        return delete(null);
+    }
+
+   // Override
+    public boolean delete(String ccNumber){
+
+        return true;
+    }
+
 
     @Column(name="CCNAME")
     private String ccName;
@@ -28,47 +51,4 @@ public class CreditCardServices {
     @Column(name="USERNAME")
     private String userName;
 
-
-
-        public int getCCNumber() {
-        return ccNumber;
-    }
-        public void setCcNumber(int ccNumber) {
-        this.ccNumber = ccNumber;
-    }
-        public String getCCName() {
-        return ccName;
-    }
-
-    public int getCvV() {
-        return cVv;
-    }
-    public void setcVv(int cVv) {
-        this.cVv = cVv;
-    }
-    public String getExpDate() {
-        return expDate;
-    }
-    public void setExpDate(String expDate) {
-        this.expDate = expDate;
-    }
-    public int getZip() {
-        return zip;
-    }
-    public void setZip(int zip) {
-        this.zip = zip;
-    }
-
-    public String getLimit() {
-        return limit;
-    }
-    public void setLimit(String limit) {
-        this.limit = limit;
-    }
-    public String getUserName() {return userName;}
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }
-
-

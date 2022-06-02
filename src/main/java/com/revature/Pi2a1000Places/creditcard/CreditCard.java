@@ -4,16 +4,16 @@ public class CreditCard {
     //CC value setup - initializing
     private String ccNumber;
     private String ccName;
-    private String cvv;
+    private int cvv;
     private String expDate;
-    private String zip;
-    private String limit;
+    private int zip;
+    private int limit;
     private String userName;
 
 //Creating Constructors for the CC Class
 
 
-    public CreditCard(String ccNumber, String ccName, String cvv, String expDate, String zip, String limit, String userName) {
+    public CreditCard(String ccNumber, String ccName, int cvv, String expDate, int zip, int limit, String userName) {
         this.ccNumber = ccNumber;
         this.ccName = ccName;
         this.cvv = cvv;
@@ -28,27 +28,27 @@ public class CreditCard {
     }
 
     //Generate Getters/Setters
-    public String getCcNumber() {
+    public String getCCNumber() {
         return ccNumber;
     }
 
-    public void setCcNumber(String ccNumber) {
+    public void setCCNumber(String ccNumber) {
         this.ccNumber = ccNumber;
     }
 
-    public String getCcName() {
+    public String getCCName() {
         return ccName;
     }
 
-    public void setCcName(String ccName) {
+    public void setCCName(String ccName) {
         this.ccName = ccName;
     }
 
-    public String getCvv() {
+    public int getCvv() {
         return cvv;
     }
 
-    public void setCvv(String cvv) {
+    public void setCvv(int cvv) {
         this.cvv = cvv;
     }
 
@@ -60,19 +60,19 @@ public class CreditCard {
         this.expDate = expDate;
     }
 
-    public String getZip() {
+    public int getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(int zip) {
         this.zip = zip;
     }
 
-    public String getLimit() {
+    public int getLimit() {
         return limit;
     }
 
-    public void setLimit(String limit) {
+    public void setLimit(int limit) {
         this.limit = limit;
     }
 
@@ -95,5 +95,8 @@ public class CreditCard {
                 ", limit='" + limit + '\'' +
                 ", userName='" + userName + '\'' +
                 '}';
+    }
+
+    public void setCCardNumber(String s) {
     }
 }

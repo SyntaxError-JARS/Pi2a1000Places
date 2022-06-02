@@ -1,18 +1,13 @@
 package com.revature.Pi2a1000Places.util;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
 public interface Crudable<T> {
 //CRUD: Create, Read, Update, Delete
 
-    T create(T newObject) throws SQLException;
+    T create(T newObject);
 
-    //check exception thrown. Necessary?
-    default T[] findAll() throws IOException {
-        return null;
-    }
+    T readById(String userName);
+
     T findById(String username);
-                    boolean update(T updatedObject);
-                    boolean delete(String username);
-}                                      //or CreditCard?
+    boolean update(T updatedObject);
+    boolean delete(String username);
+}         //or CreditCard?
