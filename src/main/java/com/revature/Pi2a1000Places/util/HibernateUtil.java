@@ -4,6 +4,7 @@ import com.revature.Pi2a1000Places.customer.Customer;
 import com.revature.Pi2a1000Places.credit_card.CreditCard;
 import com.revature.Pi2a1000Places.menu.Menu;
 import com.revature.Pi2a1000Places.order.Order;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -23,6 +24,7 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
             Properties props = new Properties();
 
+        
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             props.load(loader.getResourceAsStream("hibernate.properties"));
 
@@ -30,9 +32,11 @@ public class HibernateUtil {
 
             configuration.addAnnotatedClass(Customer.class);
 
+
             //configuration.addAnnotatedClass(CreditCard.class);
             //configuration.addAnnotatedClass(Menu.class);
             //configuration.addAnnotatedClass(Order.class);
+
 
             // ServiceRegistry
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -65,4 +69,4 @@ public class HibernateUtil {
 //        hibernate.connection.password=
 //        hibernate.show_sql=true
 //        #Create once and update thereafter
-//        hibernate.hbm2ddl.auto=update
+
