@@ -1,89 +1,89 @@
-package com.revature.Pi2a1000Places.creditcard;
-
-import com.revature.Pi2a1000Places.creditcard.CreditCardServices;
-import com.revature.Pi2a1000Places.util.ConnectionFactory;
-import com.revature.Pi2a1000Places.util.HibernateUtil;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-
-import com.revature.Pi2a1000Places.util.HibernateUtil;
-
-import java.io.IOException;
-
-public class CreditCardDao extends CreditCardServices {
-    //Create creditCard
-    public static CreditCard create(Object CreditCard) {
-
-    CreditCard creditcard = new CreditCard();
-    creditcard.setCCNumber("7878");
-    creditcard.setCCName("Test");
-    creditcard.setCvv(Integer.parseInt("888"));
-    creditcard.setExpDate("12/12/28");
-    creditcard.setZip(Integer.parseInt("64646"));
-    creditcard.setLimit(Integer.parseInt("55000"));
-    creditcard.setUserName("Name");
-
-    try {
-        SessionFactory sessionFactory = HibernateUtil.getSession().getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(CreditCard);
-        return new CreditCard();
-        session.getTransaction().commit();
-    }catch (HibernateException){
-    } catch (IOException e) {
-        throw new RuntimeException(e);
-    }
-        System.out.println("CC Added");
-        return null;
-        session.close();
-        sessionFactory.close();
-
-    {
-
-//        //Update creditCard
-//    public boolean update(CreditCard updatedCreditCard){
+//package com.revature.Pi2a1000Places.creditcard;
 //
-//        Session session;
+//import com.revature.Pi2a1000Places.creditcard.CreditCardServices;
+//import com.revature.Pi2a1000Places.util.ConnectionFactory;
+//import com.revature.Pi2a1000Places.util.HibernateUtil;
+//import org.hibernate.HibernateException;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.Transaction;
+//
+//import com.revature.Pi2a1000Places.util.HibernateUtil;
+//
+//import java.io.IOException;
+//
+//public class CreditCardDao extends CreditCardServices {
+//    //Create creditCard
+//    public static CreditCard create(Object CreditCard) {
+//
+//    CreditCard creditcard = new CreditCard();
+//    creditcard.setCCNumber("7878");
+//    creditcard.setCCName("Test");
+//    creditcard.setCvv(Integer.parseInt("888"));
+//    creditcard.setExpDate("12/12/28");
+//    creditcard.setZip(Integer.parseInt("64646"));
+//    creditcard.setLimit(Integer.parseInt("55000"));
+//    creditcard.setUserName("Name");
+//
+//    try {
+//        SessionFactory sessionFactory = HibernateUtil.getSession().getSessionFactory();
+//        Session session = sessionFactory.openSession();
+//        session.beginTransaction();
+//        session.save(CreditCard);
+//        return new CreditCard();
+//        session.getTransaction().commit();
+//    }catch (HibernateException){
+//    } catch (IOException e) {
+//        throw new RuntimeException(e);
+//    }
+//        System.out.println("CC Added");
+//        return null;
+//        session.close();
+//        sessionFactory.close();
+//
+//    {
+//
+////        //Update creditCard
+////    public boolean update(CreditCard updatedCreditCard){
+////
+////        Session session;
+////        try {
+////            sessionFactory = HibernateUtil.getSession().getSessionFactory();
+////            session = sessionFactory.openSession();
+////            session.beginTransaction();
+////            session.update(creditcard);
+////            return updatedCreditCard;
+////            //creditCard.setCCName() ("Test")
+////            session.getTransaction().commit();
+////        } catch (HibernateException) {
+////        } catch (IOException e) {
+////            throw new RuntimeException(e);
+////
+////            System.out.println("CC Updated");
+////            return CreditCard;
+////            session.close();
+////            sessionFactory.close();
+////            //where does return statement go?
+//
+//        }
+//
+//        //Delete creditCard
+//        public Boolean delete (String ccNumber){
 //        try {
-//            sessionFactory = HibernateUtil.getSession().getSessionFactory();
-//            session = sessionFactory.openSession();
-//            session.beginTransaction();
-//            session.update(creditcard);
-//            return updatedCreditCard;
-//            //creditCard.setCCName() ("Test")
-//            session.getTransaction().commit();
-//        } catch (HibernateException) {
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
+//            Session session = HibernateUtil.getSession();
+//            Transaction transaction = session.beginTransaction();
+//            CreditCard creditCard = session.load(CreditCard.class,"creditCard");
+//                    session.delete(creditCard);
+//            transaction.commit();
+//        } catch (HibernateException | IOException e) {
+//            System.out.println("CC Deleted");
+//        } finally {
+//            HibernateUtil.closeSession();
+//        }
+//        }
 //
-//            System.out.println("CC Updated");
-//            return CreditCard;
-//            session.close();
-//            sessionFactory.close();
-//            //where does return statement go?
-
-        }
-
-        //Delete creditCard
-        public Boolean delete (String ccNumber){
-        try {
-            Session session = HibernateUtil.getSession();
-            Transaction transaction = session.beginTransaction();
-            CreditCard creditCard = session.load(CreditCard.class,"creditCard");
-                    session.delete(creditCard);
-            transaction.commit();
-        } catch (HibernateException | IOException e) {
-            System.out.println("CC Deleted");
-        } finally {
-            HibernateUtil.closeSession();
-        }
-        }
-
-
-}
+//
+//}
 
 // MVP a. Create - ADD Card
 //    public CreditCard addCC(String ccNumber, String ccName, String cvv, String expDate, String zip, String limits, String customerUsername) {
@@ -143,26 +143,26 @@ public class CreditCardDao extends CreditCardServices {
 ////4.5 (for credit card update and update limit see do get in trainer servlet )
 //}
 
-        public void update () {
-        }
-
-        public void update () {
-        }
-
-        public void update () {
-        }
-
-        public static void create () {
-        }
-
-        public static void createCC () {
-        }
-
-        public static void createCC () {
-        }
-
-        public static void createCC () {
-        }
-
-        public static void createCC () {
-        }
+//        public void update () {
+//        }
+//
+//        public void update () {
+//        }
+//
+//        public void update () {
+//        }
+//
+//        public static void create () {
+//        }
+//
+//        public static void createCC () {
+//        }
+//
+//        public static void createCC () {
+//        }
+//
+//        public static void createCC () {
+//        }
+//
+//        public static void createCC () {
+//        }
