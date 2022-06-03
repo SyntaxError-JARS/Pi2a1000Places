@@ -138,6 +138,7 @@ public class CustomerDao {
 
     public Customer updateCustomer(Customer customerToUpdate){
             String username = customerToUpdate.getUsername();
+            String password = customerToUpdate.getPassword();
 
         try {
             Session session = HibernateUtil.getSession();
