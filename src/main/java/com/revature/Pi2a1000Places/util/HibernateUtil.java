@@ -1,10 +1,6 @@
 package com.revature.Pi2a1000Places.util;
 
 import com.revature.Pi2a1000Places.customer.Customer;
-import com.revature.Pi2a1000Places.credit_card.CreditCard;
-import com.revature.Pi2a1000Places.menu.Menu;
-import com.revature.Pi2a1000Places.order.Order;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

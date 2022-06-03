@@ -1,20 +1,34 @@
 package com.revature.Pi2a1000Places.creditcard;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name = "credit_card")
 public class CreditCard {
-    //CC value setup - initializing
+
+    @Id
+    @Column(name="cc_number")
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private String ccNumber;
+    //CC value setup - initializing
+    @Column (name= "cc_Name")
     private String ccName;
+    @Column (name= "cvv")
     private int cvv;
+    @Column (name="exp_Date")
     private String expDate;
+    @Column (name ="zip")
     private int zip;
+    @Column (name ="limit")
     private int limit;
+    @Column (name ="user_Name")
     private String userName;
 
-//Creating Constructors for the CC Class
+//Creating Constructors for the CC Class@
 
 
     public CreditCard(String ccNumber, String ccName, int cvv, String expDate, int zip, int limit, String userName) {
-        this.ccNumber = ccNumber;
+
         this.ccName = ccName;
         this.cvv = cvv;
         this.expDate = expDate;

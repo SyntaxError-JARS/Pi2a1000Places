@@ -10,7 +10,8 @@ public class CreditCardDto {
     private String expDate;
     private String zip;
     private String limits;
-    private String customerUsername;
+    private String userName;
+    private CreditCard String;
 
     public String getCcNumber() {
         return ccNumber;
@@ -60,11 +61,16 @@ public class CreditCardDto {
         this.limits = limits;
     }
 
-    public String getCustomerUsername() {
-        return customerUsername;
+    public String getUserName() {
+        String UserName = null;
+        return UserName; }
+
+    public void setUsername(String username) {
+        String UserName = new String();
+        this.userName = UserName;
     }
 
-    public void setCustomerUsername(String customerUsername) {
-        this.customerUsername = customerUsername;
+    public CreditCard getCreditCard() {
+        return String;
     }
 }
