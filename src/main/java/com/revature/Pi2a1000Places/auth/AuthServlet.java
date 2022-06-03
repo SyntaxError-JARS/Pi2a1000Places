@@ -1,8 +1,8 @@
 package com.revature.Pi2a1000Places.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.revature.Pi2a1000Places.customer.Customer;
-//import com.revature.Pi2a1000Places.customer.CustomerServices;
+import com.revature.Pi2a1000Places.customer.Customer;
+import com.revature.Pi2a1000Places.customer.CustomerServices;
 import com.revature.Pi2a1000Places.util.exceptions.AuthenticationException;
 import com.revature.Pi2a1000Places.util.exceptions.InvalidRequestException;
 
@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 
 public class AuthServlet extends HttpServlet {
 
-//    private final CustomerServices customerServices;
+    private final CustomerServices customerServices;
 
     private final ObjectMapper mapper;
 
