@@ -50,11 +50,13 @@ public class CustomerDao {
             Session session = HibernateUtil.getSession();
             //System.out.println("After Get Session");
             Transaction transaction = session.beginTransaction();
-           // System.out.println("After Transaction");
+
+            // System.out.println("After Transaction");
             Customer customer = session.get(Customer.class,username);
             //System.out.println("After Session.get");
             transaction.commit();
-           // System.out.println("After Transaction Commit");
+            // System.out.println("After Transaction Commit");
+
             if(customer !=null){
                 return true;
             }else return false;
@@ -136,5 +138,32 @@ public class CustomerDao {
         return deletedAccount = ("Account of " + username + " has been deleted \n");
     }
 
+    public Customer updateCustomer(Customer customerToUpdate){
+            String username = customerToUpdate.getUsername();
+            String password = customerToUpdate.getPassword();
 
-}
+        try {
+            Session session = HibernateUtil.getSession();
+
+            Transaction transaction = session.beginTransaction();
+            session.update(username, customerToUpdate);
+            transaction.commit();
+
+            session.beginTransaction();
+            Customer customer = session.get(Customer.class,username);
+            transaction.commit();
+
+        } catch (HibernateException | IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        return customerToUpdate;
+    }
+
+
+    }
+
+
+
