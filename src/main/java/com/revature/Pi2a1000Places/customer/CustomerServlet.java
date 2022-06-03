@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.Pi2a1000Places.auth.LoginCreds;
 import com.revature.Pi2a1000Places.util.exceptions.AuthenticationException;
 import com.revature.Pi2a1000Places.util.exceptions.InvalidRequestException;
+import com.revature.Pi2a1000Places.util.interfaces.Authable
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
