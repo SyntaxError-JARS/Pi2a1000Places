@@ -4,14 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="The changes made were to clear up the drafts and make just one version on Github and to streamline for using with hibernate.&#10;&#10;The outline code was mostly removed and the relevent code was left.">
+    <list default="true" id="9d8719fb-82bf-4a6d-b706-f8376dbc2834" name="Changes" comment="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/menu/MenuDoa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/menu/MenuServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/menu/MenuServlets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/menu/createtabls.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/menu/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MenuDoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/MenuDoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DraftMenuDom" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuDraftsforP1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuDraftsforP1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Syntaxoftables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/util/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/Pi2a1000Places/util/ConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,23 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vow/Desktop/revature-parent/Pi2a1000Places_API_TM_RD&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
+    "last_opened_file_path": "/home/vow/Desktop/revature-parent/Pi2a1000Places_API_TM_RD"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JavaScript&quot;,
-      &quot;JAVA&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JavaScript",
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$APPLICATION_CONFIG_DIR$/scratches" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/test" />
@@ -128,7 +147,42 @@
       <option name="project" value="LOCAL" />
       <updated>1654189614362</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages.">
+      <created>1654190066320</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1654190066320</updated>
+    </task>
+    <task id="LOCAL-00011" summary="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages.">
+      <created>1654196460676</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654196460676</updated>
+    </task>
+    <task id="LOCAL-00012" summary="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages.">
+      <created>1654196530548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654196530548</updated>
+    </task>
+    <task id="LOCAL-00013" summary="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages.">
+      <created>1654202122560</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654202122560</updated>
+    </task>
+    <task id="LOCAL-00014" summary="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages.">
+      <created>1654202240837</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654202240837</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +202,7 @@
     <MESSAGE value="Sunday redrafting of code to review and adapt and apply. More was removed to lewave only relevant to the project1. I continue to revise the classes and methods. this. access the instance of the class of a specific object.&#10;&#10;The menu items must be change by the Admin. Just like the order can change.&#10;That requires similar code of editing the datasource. Create a method which has a selection to enable modifying the data tables of items on the menu stored in the database(managed in SQL via Azure)." />
     <MESSAGE value="The third file of the for java code to general the other in the ide." />
     <MESSAGE value="The changes made were to clear up the drafts and make just one version on Github and to streamline for using with hibernate.&#10;&#10;The outline code was mostly removed and the relevent code was left." />
-    <option name="LAST_COMMIT_MESSAGE" value="The changes made were to clear up the drafts and make just one version on Github and to streamline for using with hibernate.&#10;&#10;The outline code was mostly removed and the relevent code was left." />
+    <MESSAGE value="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages." />
+    <option name="LAST_COMMIT_MESSAGE" value="This further does housekeeping to make continued coding easier and to follow change into hibernate and other software packages." />
   </component>
 </project>

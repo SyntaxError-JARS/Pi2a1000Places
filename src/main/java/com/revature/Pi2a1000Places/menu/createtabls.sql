@@ -1,6 +1,6 @@
 /*	Created in Dbeaver for P1 project to structure tables
  
- *		Some of the tabel modification wi
+ *
  */
 
 CREATE TABLE customer(
@@ -63,12 +63,3 @@ WHERE		;
 UPDATE Aorder
 SET
 WHERE		;
-
-
-/*	ALTER TABLE name
- *  ADD column_name datatype; 	DROP COLUMN column_name; 	 ALTER COLUMN column_name datatype; 	 MODIFY COLUMN column_name datatype; 
- * 
- *  MODIFY COLUMN column_name datatype; 	
- */
-
-*/
