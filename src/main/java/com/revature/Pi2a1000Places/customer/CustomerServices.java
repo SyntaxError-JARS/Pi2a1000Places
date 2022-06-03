@@ -29,7 +29,7 @@ public class CustomerServices {
             throw new InvalidRequestException("Password cannot be blank");}
         System.out.println("The User Has been Validated");
         if (verifyNewUsername(newUser.getUsername()) == true) {
-            System.out.println("It worked dingus");
+            
             throw new InvalidRequestException("That username has already been taken");
         }else{
             createNewUser(newUser);
