@@ -1,6 +1,6 @@
 package com.revature.Pi2a1000Places.util;
 
-import com.revature.Pi2a1000Places.customer.Customer;
+//import com.revature.Pi2a1000Places.customer.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -25,7 +25,7 @@ public class HibernateUtil {
 
             configuration.setProperties(props);
 
-            configuration.addAnnotatedClass(Customer.class);
+        //    configuration.addAnnotatedClass(Customer.class);
 
 
             //configuration.addAnnotatedClass(CreditCard.class);
