@@ -24,7 +24,7 @@ public class CreditCard {
     @Column (name ="user_Name")
     private String userName;
 
-//Creating Constructors for the CC Class@
+//CC Class Constructors
 
 
     public CreditCard(String ccNumber, String ccName, int cvv, String expDate, int zip, int limit, String userName) {

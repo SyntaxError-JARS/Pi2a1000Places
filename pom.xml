@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.revature</groupId>
-  <artifactId>Pi2a1000Places</artifactId>
+  <artifactId>Pi1000Places</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -25,13 +25,14 @@
           <configuration>
             <url>http://localhost:8080/manager/text</url>
             <server>LocalTomcat</server>
-            <path>/PitoA1000Places</path>
+            <path>/Pi1000Places/</path>
             <update>true</update>
           </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
 
   <!--    <build>-->
   <!--        <pluginManagement>-->

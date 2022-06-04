@@ -31,7 +31,6 @@ public class CreditCardDao {
         } catch (HibernateException | IOException e) {
             throw new RuntimeException(e);
         } finally {
-
             HibernateUtil.closeSession();
         }
     }
@@ -55,7 +54,22 @@ public class CreditCardDao {
         } finally {
             HibernateUtil.closeSession();
         }
-        //where does return statement go?
+
+        //create follow-up method for updating credit cards (Hibernate-format calls for x2)
+        //How to ensure CC record is replaced after update, not stored in database?
+//        try {
+//            session = (Session) HibernateUtil.getSession().getSessionFactory();
+//            Transaction transaction = session.beginTransaction();
+//            session.cut(CreditCard);
+//            session.getTransaction().commit();
+//            return true;
+//        } catch (HibernateException | IOException e) {
+//
+//            System.out.println("CC Updated");
+//            return false;
+//        } finally {
+//            HibernateUtil.closeSession();
+//        }
 
     }
 
