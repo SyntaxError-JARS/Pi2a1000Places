@@ -75,9 +75,11 @@ public class CustomerServlet extends HttpServlet {
 
             if (customerToDelete.getUsername().equals(LoginCreds.getUsername()) && customerToDelete.getPassword().equals(LoginCreds.getPassword())) {
                 resp.getWriter().write( customerServices.deleteCustomer(customerToDelete));
+                req.getSession().invalidate();
             }else{throw new AuthenticationException("The username and password of the current user does not match the one to be deleted");
             }
         }
     }
+
 
 }
