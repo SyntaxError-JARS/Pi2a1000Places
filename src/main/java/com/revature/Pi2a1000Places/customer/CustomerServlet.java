@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CustomerServlet extends HttpServlet implements Authable {
+public class CustomerServlet extends HttpServlet {
 
     private final CustomerServices customerServices;
     private final ObjectMapper mapper;
