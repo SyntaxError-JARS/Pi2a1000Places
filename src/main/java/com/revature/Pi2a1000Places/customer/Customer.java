@@ -17,6 +17,8 @@ public class Customer {
     private String password;
     @Column(name = "balance")
     private String balance;
+    @Column(name = "is_admin")
+    private boolean isAdmin;
 
     public Customer( String username, String password, String fname,String lname, String balance){
         super();
@@ -52,6 +54,9 @@ public class Customer {
 
     public void setPassword(String password){this.password = password;}
 
+    public Boolean getIsAdmin(){return isAdmin;}
+
+    public void setIsAdmin(boolean isAdmin){this.isAdmin = isAdmin;}
 
 
 

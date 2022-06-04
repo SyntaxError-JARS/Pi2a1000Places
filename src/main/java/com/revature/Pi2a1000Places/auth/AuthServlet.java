@@ -6,6 +6,7 @@ import com.revature.Pi2a1000Places.customer.CustomerServices;
 import com.revature.Pi2a1000Places.util.exceptions.AuthenticationException;
 import com.revature.Pi2a1000Places.util.exceptions.InvalidRequestException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,14 +31,10 @@ public class AuthServlet extends HttpServlet {
         try {
 
             LoginCreds loginCreds = mapper.readValue(req.getInputStream(), LoginCreds.class);
-
             Customer authCustomer = customerServices.authenticateCustomer(loginCreds.getUsername(), loginCreds.getPassword());
-
-
 
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("authCustomer", authCustomer);
-
 
             resp.getWriter().write("You have successfully logged in!");
         } catch (AuthenticationException | InvalidRequestException e){
@@ -48,5 +45,15 @@ public class AuthServlet extends HttpServlet {
             resp.getWriter().write(e.getMessage());
         }
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+        resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        req.getSession().invalidate();
+        resp.getWriter().write("User has logged out!");
+    }
+
 
 }

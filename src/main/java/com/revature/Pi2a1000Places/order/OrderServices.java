@@ -3,6 +3,7 @@ package com.revature.Pi2a1000Places.order;
 import com.revature.Pi2a1000Places.util.exceptions.InvalidRequestException;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 public class OrderServices {
@@ -15,7 +16,14 @@ public class OrderServices {
         System.out.println("Adding order");
         Random random = new Random();
         int id = Math.abs(random.nextInt());
-        int date = calendar.get(Calendar.DAY_OF_MONTH);
+
+        int month = (calendar.get(calendar.MONTH))+1;
+        int day = calendar.get(calendar.DAY_OF_MONTH);
+        int year = calendar.get(calendar.YEAR);
+        String date = month + "/" + day + "/" + year;
+
+        orderToCreate.setOrderDate(date);
+        orderToCreate.setId(id);
 
         String menuItem = orderToCreate.getMenuItem();
         String username = orderToCreate.getCustomerUsername();
@@ -23,8 +31,14 @@ public class OrderServices {
         if(username == null){throw new InvalidRequestException("Username cannot be null");
         }else if(menuItem == null) {throw new InvalidRequestException("Menu Item cannot be null");
         }else {
-            return orderDao.createOrder(username, menuItem, id, date);
+            return orderDao.createOrder(orderToCreate);
         }
 
     }
+
+    public List<Order> getOrderByDate(Order orderToCreate, String date){
+
+        return orderDao.orderByDate(orderToCreate, date);
+    }
+
 }

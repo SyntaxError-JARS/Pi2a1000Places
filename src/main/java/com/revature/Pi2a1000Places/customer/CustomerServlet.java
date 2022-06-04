@@ -48,12 +48,12 @@ public class CustomerServlet extends HttpServlet {
         }
         } else if (Authable.checkAuth(req, resp)) {
             try {
-                if (newUser.getUsername().equals(LoginCreds.getUsername()) && newUser.getPassword().equals(LoginCreds.getPassword())) {
+                if (newUser.getUsername().equals(LoginCreds.getUsername())) {
                     newUser = customerServices.updateCustomer(newUser);
                     String payload = mapper.writeValueAsString(newUser);
                     resp.getWriter().write(payload);
                 } else {
-                    throw new AuthenticationException("The username and password of the current user does not match the one to be deleted");
+                    throw new AuthenticationException("The username of the current user does not match the one to be deleted");
                 }
             }catch (AuthenticationException e){
                 resp.setStatus(409);
@@ -68,15 +68,21 @@ public class CustomerServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Origin", "*");
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
+        try{
         if (Authable.checkAuth(req, resp)) {
             Customer customerToDelete = mapper.readValue(req.getInputStream(), Customer.class);
             Customer customer = new Customer();
 
             if (customerToDelete.getUsername().equals(LoginCreds.getUsername()) && customerToDelete.getPassword().equals(LoginCreds.getPassword())) {
                 resp.getWriter().write( customerServices.deleteCustomer(customerToDelete));
-            }else{throw new AuthenticationException("The username and password of the current user does not match the one to be deleted");
+                req.getSession().invalidate();
+            }else{ resp.setStatus(409);
+                throw new AuthenticationException("The username and password of the current user does not match the one to be deleted");
             }
+        }
+        }catch (AuthenticationException e){
+            resp.setStatus(409);
+            resp.getWriter().write(e.getMessage());
         }
     }
 

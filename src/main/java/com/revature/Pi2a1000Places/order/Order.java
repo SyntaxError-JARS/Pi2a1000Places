@@ -1,23 +1,27 @@
 package com.revature.Pi2a1000Places.order;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "customer_order")
 public class Order {
 
-        @Id
-        private String id;
+        @Id @GeneratedValue
+        @Column(name = "id")
+        private int id;
+        @Column(name="menu_item")
         private String menuItem;
+        @Column(name="comment")
         private String comment;
-        private String isFavorite;
+        @Column(name="is_Favorite")
+        private boolean isFavorite;
+        @Column(name="order_date")
         private String orderDate;
+        @Column(name="customer_username")
         private String customerUsername;
 
 
-        public Order( String id, String menuItem, String comment,String isFavorite, String orderDate, String customerUsername){
+        public Order( int id, String menuItem, String comment,boolean isFavorite, String orderDate, String customerUsername){
             super();
             this.id = id;
             this.menuItem = menuItem;
@@ -32,9 +36,9 @@ public class Order {
         }
 
         //Getters And Setters
-        public String getId(){return id;}
+        public int getId(){return id;}
 
-        public void setId(String id){this.id = id;}
+        public void setId(int id){this.id = id;}
 
         public String getMenuItem(){return menuItem;}
 
@@ -44,9 +48,9 @@ public class Order {
 
         public void setComment(String comment){this.comment = comment;}
 
-        public String getIsFavorite(){return isFavorite;}
+        public boolean getIsFavorite(){return isFavorite;}
 
-        public void setIsFavorite(String isFavorite){this.isFavorite = isFavorite;}
+        public void setIsFavorite(boolean isFavorite){this.isFavorite = isFavorite;}
 
         public String getOrderDate(){return orderDate;}
 

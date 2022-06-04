@@ -35,7 +35,7 @@ public class HibernateUtil {
 
             //configuration.addAnnotatedClass(CreditCard.class);
             //configuration.addAnnotatedClass(Menu.class);
-            //configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(Order.class);
 
 
             // ServiceRegistry

@@ -20,7 +20,7 @@ public class CustomerDao {
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            String sql = "insert into customer (username, fname, lname, password) values (?, ?, ?, ?)";
+            String sql = "insert into customer (username, fname, lname, balance, password, is_admin) values (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -28,7 +28,9 @@ public class CustomerDao {
             ps.setString(1, newUser.getUsername());
             ps.setString(2, newUser.getFname());
             ps.setString(3, newUser.getLname());
-            ps.setString(4, newUser.getPassword());
+            ps.setInt(4, Integer.parseInt(newUser.getBalance()));
+            ps.setString(5, newUser.getPassword());
+            ps.setBoolean(6, newUser.getIsAdmin());
 
             int checkInsert = ps.executeUpdate();
 
@@ -160,6 +162,32 @@ public class CustomerDao {
             HibernateUtil.closeSession();
         }
         return customerToUpdate;
+    }
+
+    public Boolean checkAdmin(Customer customerToUpdate) {
+        try {
+            String username = customerToUpdate.getUsername();
+
+            Session session = HibernateUtil.getSession();
+
+            Transaction transaction = session.beginTransaction();
+
+            Customer customer = session.get(Customer.class,username);
+
+            transaction.commit();
+
+
+            if(customer.getIsAdmin() == true){
+                return true;
+            }else return false;
+
+        } catch (HibernateException | IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
+        }
+
     }
 
 

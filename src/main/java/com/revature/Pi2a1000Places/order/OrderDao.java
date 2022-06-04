@@ -1,64 +1,70 @@
 package com.revature.Pi2a1000Places.order;
 
+import com.revature.Pi2a1000Places.auth.LoginCreds;
+import com.revature.Pi2a1000Places.customer.Customer;
 import com.revature.Pi2a1000Places.util.ConnectionFactory;
+import com.revature.Pi2a1000Places.util.HibernateUtil;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 public class OrderDao {
 
 
-    public Order createOrder(String username, String menuItem, int id, int date) {
-
-
+    public Order createOrder(Order orderToCreate) {
         System.out.println("Persisting Order");
+        try {
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
+            session.save(orderToCreate);
+            transaction.commit();
 
-        Order order = new Order();
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
-            String sql = "insert into \"order\" values (?, ?, null, default, ?, ? );";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,id);
-            ps.setString(2, menuItem);
-            ps.setInt(3, date);
-            ps.setString(4, username);
-
-            int rs = ps.executeUpdate();
-            System.out.println(rs);
-
-        } catch (SQLException e) {
+        } catch (HibernateException | IOException e) {
             e.printStackTrace();
             return null;
+        } finally {
+            HibernateUtil.closeSession();
         }
+        return orderToCreate;
+    }
 
-        try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
-            String sql = "select * from \"order\" where customer_username = ? and menu_item = ?;";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, username);
-            ps.setString(2, menuItem);
+    public List<Order> orderByDate(Order orderToCreate, String date) {
+        try {
+            Session session = HibernateUtil.getSession();
+            Transaction transaction = session.beginTransaction();
 
-            ResultSet rs = ps.executeQuery();
+           Query query = session.createQuery("from Order where orderDate= :date and customerUsername= :username");
+            query.setParameter("date", date);
+            query.setParameter("username", LoginCreds.getUsername());
 
-            while (rs.next()) {
+            List<Order> orders = (List<Order>) query.getResultList();
 
 
-                order.setId(rs.getString("id"));
-                order.setMenuItem(rs.getString("menu_item"));
-                order.setCustomerUsername(rs.getString("customer_username"));
-
-            }
-        } catch (SQLException e) {
+            transaction.commit();
+            return orders;
+        } catch (HibernateException | IOException e) {
             e.printStackTrace();
             return null;
+        } finally {
+            HibernateUtil.closeSession();
         }
 
-        System.out.println("Order Persisted");
-        return order;
+    }
+
+
     }
     
     
-}
+

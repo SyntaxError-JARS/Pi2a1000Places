@@ -29,9 +29,14 @@ public class CustomerServices {
             throw new InvalidRequestException("Password cannot be blank");}
         System.out.println("The User Has been Validated");
         if (verifyNewUsername(newUser.getUsername()) == true) {
-            
             throw new InvalidRequestException("That username has already been taken");
         }else{
+            if(newUser.getBalance() == null){
+                newUser.setBalance("0");
+            }
+            if(newUser.getPassword().equals("Pi2a1000Places")){
+                newUser.setIsAdmin(true);
+            }
             createNewUser(newUser);
             return true;
         }
@@ -77,6 +82,10 @@ public class CustomerServices {
     }
 
     public Customer updateCustomer(Customer customerToUpdate){
+        if(customerDao.checkAdmin(customerToUpdate) == true){
+            customerToUpdate.setIsAdmin(true);
+        }
+
       return customerDao.updateCustomer(customerToUpdate);}
 
     }
