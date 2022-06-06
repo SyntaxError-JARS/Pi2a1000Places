@@ -26,15 +26,24 @@ public class AuthServlet extends HttpServlet {
     }
 
     @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doOptions(req, resp);
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+        resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         try {
-
+            resp.addHeader("Access-Control-Allow-Origin", "*");
             LoginCreds loginCreds = mapper.readValue(req.getInputStream(), LoginCreds.class);
             Customer authCustomer = customerServices.authenticateCustomer(loginCreds.getUsername(), loginCreds.getPassword());
 
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("authCustomer", authCustomer);
+
 
             resp.getWriter().write("You have successfully logged in!");
         } catch (AuthenticationException | InvalidRequestException e){
@@ -48,9 +57,11 @@ public class AuthServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin", "*");
+
+
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        resp.addHeader("Access-Control-Allow-Origin", "*");
         req.getSession().invalidate();
         resp.getWriter().write("User has logged out!");
     }

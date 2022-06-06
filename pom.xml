@@ -33,6 +33,58 @@
     </pluginManagement>
   </build>
 
+
+<!--  <build>-->
+<!--    &lt;!&ndash; https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java &ndash;&gt;-->
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <version>3.8.1</version>-->
+<!--        <configuration>-->
+<!--          <source>1.8</source>-->
+<!--          <target>1.8</target>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--      &lt;!&ndash;************************************************* &ndash;&gt;-->
+<!--      &lt;!&ndash; Deploy to Tomcat in App Service Windows &ndash;&gt;-->
+<!--      &lt;!&ndash;************************************************* &ndash;&gt;-->
+<!--      <plugin>-->
+<!--        <groupId>com.microsoft.azure</groupId>-->
+<!--        <artifactId>azure-webapp-maven-plugin</artifactId>-->
+<!--        <version>1.7.0</version>-->
+<!--        <configuration>-->
+<!--          &lt;!&ndash; Specify v2 schema &ndash;&gt;-->
+<!--          <schemaVersion>v2</schemaVersion>-->
+<!--          &lt;!&ndash; App information &ndash;&gt;-->
+<!--          &lt;!&ndash; SUBSCRIPTION_ID Unique ID for the subscription that deploys the app&ndash;&gt;-->
+<!--          <subscriptionId>4dd1041a-ca8a-410b-86b8-2f747239a9ac</subscriptionId>-->
+<!--          &lt;!&ndash; RESOURCEGROUP_NAME &ndash;&gt;-->
+<!--          <resourceGroup>project-1</resourceGroup>-->
+<!--          &lt;!&ndash; WEBAPP_NAME &ndash;&gt;-->
+<!--          <appName>pi2a1000places</appName>-->
+<!--          &lt;!&ndash; REGION &ndash;&gt;-->
+<!--          <region>Central US</region>-->
+<!--          &lt;!&ndash; Java Runtime Stack for App Service on Windows &ndash;&gt;-->
+<!--          <runtime>-->
+<!--            <os>windows</os>-->
+<!--            <javaVersion>1.8</javaVersion>-->
+<!--            <webContainer>tomcat 9.0</webContainer>-->
+<!--          </runtime>-->
+<!--          <deployment>-->
+<!--            <resources>-->
+<!--              <resource>-->
+<!--                <directory>${project.basedir}/target</directory>-->
+<!--                <includes>-->
+<!--                  <include>*.war</include>-->
+<!--                </includes>-->
+<!--              </resource>-->
+<!--            </resources>-->
+<!--          </deployment>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+<!--  </build>-->
+
  
 
   <dependencies>
@@ -101,12 +153,7 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.8.2</version>
-      <scope>test</scope>
-    </dependency>
+
 
 </dependencies>
 

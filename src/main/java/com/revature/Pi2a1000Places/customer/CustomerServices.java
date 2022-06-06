@@ -84,7 +84,7 @@ public class CustomerServices {
     public Customer updateCustomer(Customer customerToUpdate){
         if(customerDao.checkAdmin(customerToUpdate) == true){
             customerToUpdate.setIsAdmin(true);
-        }
+        }else customerToUpdate.setIsAdmin(false);
 
       return customerDao.updateCustomer(customerToUpdate);}
 

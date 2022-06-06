@@ -48,7 +48,7 @@ public class CustomerDao {
 
     public Boolean pullUsernames(String username) {
         try {
-            //System.out.println("Before Hibernate");
+            System.out.println("Before Hibernate");
             Session session = HibernateUtil.getSession();
             //System.out.println("After Get Session");
             Transaction transaction = session.beginTransaction();
@@ -58,6 +58,7 @@ public class CustomerDao {
             //System.out.println("After Session.get");
             transaction.commit();
             // System.out.println("After Transaction Commit");
+            System.out.println(customer);
 
             if(customer !=null){
                 return true;
@@ -110,7 +111,7 @@ public class CustomerDao {
     public String deleteCustomer(String username) {
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
-            String sql = "delete from \"order\" where customer_username = ?";
+            String sql = "delete from customer_order where customer_username = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
 
@@ -175,6 +176,11 @@ public class CustomerDao {
             Customer customer = session.get(Customer.class,username);
 
             transaction.commit();
+            System.out.println(customer.getIsAdmin());
+
+            if(customer.getIsAdmin()== null){
+                customer.setIsAdmin(false);
+            }
 
 
             if(customer.getIsAdmin() == true){

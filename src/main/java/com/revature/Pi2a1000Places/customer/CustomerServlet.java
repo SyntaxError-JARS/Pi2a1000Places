@@ -37,25 +37,31 @@ public class CustomerServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         Customer newUser = mapper.readValue(req.getInputStream(), Customer.class);
 
-        if(!Authable.checkAuth(req, resp)){
-        try {
-            resp.getWriter().write("\nAttempting to Create Account\n");
-            customerServices.validateUserInput(newUser);
-            resp.getWriter().write("This user has been created " + newUser);
-        } catch (InvalidRequestException e) {
-            resp.setStatus(409);
-            resp.getWriter().write(e.getMessage());
-        }
-        } else if (Authable.checkAuth(req, resp)) {
+        if (Authable.checkAuth(req, resp)) {
             try {
+                System.out.println("Updating Customer");
                 if (newUser.getUsername().equals(LoginCreds.getUsername())) {
+                    System.out.println("passed auth");
                     newUser = customerServices.updateCustomer(newUser);
                     String payload = mapper.writeValueAsString(newUser);
                     resp.getWriter().write(payload);
+                    resp.setStatus(200);
                 } else {
-                    throw new AuthenticationException("The username of the current user does not match the one to be deleted");
+                    throw new AuthenticationException("The username of the current user does not match the one to be updated");
                 }
             }catch (AuthenticationException e){
+                System.out.println("Not matching usernames");
+                resp.setStatus(409);
+                resp.getWriter().write(e.getMessage());
+            }
+        } else {
+            try {
+                System.out.println("Attempting to Create");
+                resp.getWriter().write("\nAttempting to Create Account\n");
+                customerServices.validateUserInput(newUser);
+                resp.getWriter().write("This user has been created " + newUser);
+                resp.setStatus(200);
+            } catch (InvalidRequestException e) {
                 resp.setStatus(409);
                 resp.getWriter().write(e.getMessage());
             }
