@@ -1,7 +1,9 @@
 package com.revature.Pi2a1000Places.util;
 
-//import com.revature.Pi2a1000Places.customer.Customer;
-
+import com.revature.Pi2a1000Places.creditcard.CreditCard;
+import com.revature.Pi2a1000Places.customer.Customer;
+import com.revature.Pi2a1000Places.menu.Menu;
+import com.revature.Pi2a1000Places.order.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -32,12 +34,10 @@ public class HibernateUtil {
 
             configuration.setProperties(props);
 
-            //    configuration.addAnnotatedClass(Customer.class);
-
-
-            //configuration.addAnnotatedClass(CreditCard.class);
-            //configuration.addAnnotatedClass(Menu.class);
-            //configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(Customer.class);
+            configuration.addAnnotatedClass(CreditCard.class);
+            configuration.addAnnotatedClass(Menu.class);
+            configuration.addAnnotatedClass(Order.class);
 
 
             // ServiceRegistry
@@ -78,11 +78,11 @@ public class HibernateUtil {
 
 
 
-//        hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-//        hibernate.connection.driver_class=org.postgresql.Driver
-//        hibernate.connection.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=restaurant
-//        hibernate.connection.username=postgres
-//        hibernate.connection.password=
-//        hibernate.show_sql=true
-//        #Create once and update thereafter
-//        hibernate.hbm2ddl.auto=update
+        hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+        hibernate.connection.driver_class=org.postgresql.Driver
+        hibernate.connection.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=restaurant
+        hibernate.connection.username=postgres
+        hibernate.connection.password=
+        hibernate.show_sql=true
+        #Create once and update thereafter
+        hibernate.hbm2ddl.auto=update

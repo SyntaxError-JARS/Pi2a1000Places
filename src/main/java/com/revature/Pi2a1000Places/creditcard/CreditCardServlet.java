@@ -27,7 +27,7 @@ public class CreditCardServlet extends HttpServlet {
 
     }
 
-    //CREATE- Allows servlet to handle a POST request
+    //CREATE- Allows servlet to handle POST request
     // ** Sending information to the server like HTML form data
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 //        addHeads(req, resp);
@@ -38,7 +38,7 @@ public class CreditCardServlet extends HttpServlet {
 
 
         resp.getWriter().write("Credit Card Added \n");
-//        resp.getWriter().write(payload);
+        resp.getWriter().write(payload);
         resp.setStatus(201);
     }
 
